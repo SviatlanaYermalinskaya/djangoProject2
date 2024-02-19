@@ -45,6 +45,11 @@ def img_form(request):
             form.save()
             added_image = Img.objects.last()
 
+            # export all added images to excel file
+            df = pd.DataFrame(Img.objects.all().values())
+            #print(df.head())
+            df.to_excel('./images.xlsx')
+
             return render(request, 'form.html', {'form': form, 'image': added_image, 'fname': fname})
     else:
         form = ImageForm()
@@ -57,4 +62,4 @@ def testo(request):
     person.age = 18
     person.profession = 'Profession'
     person.save()
-    return render(request, 'testo.html')
+    return render(request, 'testo2.html', {'name': 'Egor'})
