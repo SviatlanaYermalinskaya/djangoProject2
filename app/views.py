@@ -46,6 +46,7 @@ def img_form(request):
             added_image = Img.objects.last()
 
             # export all added images to excel file
+            # pip install pillow, pyarrow, openpyxl xlsxwriter xlrd
             df = pd.DataFrame(Img.objects.all().values())
             #print(df.head())
             df.to_excel('./images.xlsx')
