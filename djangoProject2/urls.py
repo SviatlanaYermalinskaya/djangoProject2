@@ -22,5 +22,8 @@ from app import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index),
+    path('color/', views.color),
+    path('testo/', views.testo),
+    path('form/', views.img_form),
     path('<str:s>', views.some_url),
 ]
